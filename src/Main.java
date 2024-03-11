@@ -4,7 +4,7 @@ ArrayList<Integer> a=new ArrayList<>();
 a.add(1);
         a.add(1);
         a.add(1);
-        a.add(1);
+//        a.add(1);
         a.remove(a.size()-1);
         LinkedList<Integer> l=new LinkedList<>();
         l.add(1);
