@@ -50,14 +50,15 @@ public class ArrayList<E> {
         }
         return -1;
     }
-    public E remove(int indx)throws Exception{
+
+    public E remove(int indx) throws Exception {
         if (indx < 0 || indx > lastIndex)
             throw new RuntimeException("ArrayList index out of bounds");
-        E temp=data[indx];
-        for (int i = indx; i <lastIndex-1 ; i++) {
-            data[i]=data[i+1];
+        E temp = data[indx];
+        for (int i = indx; i < lastIndex - 1; i++) {
+            data[i] = data[i + 1];
         }
-        data[lastIndex--]=null;
+        data[lastIndex--] = null;
         return temp;
     }
 
@@ -73,5 +74,18 @@ public class ArrayList<E> {
         lastIndex = -1;
         data = (E[]) new Object[data.length];
     }
-//public String toString(){}
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder("[");
+        for (int i = 0; i < size(); i++) {
+            if (i == size() - 1) {
+                s.append(data[i]);
+                continue;
+            }
+            s.append(data[i]).append(",");
+        }
+        s.append("]");
+        return s.toString();
+    }
 }

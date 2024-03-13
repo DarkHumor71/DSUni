@@ -160,6 +160,18 @@ public class LinkedList<E> {
         return curr.val;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        Node<E> curr = head;
+        while (curr != null) {
+            if (curr == tail) s.append(curr.val);
+            else s.append(curr.val).append(",");
+            curr = curr.next;
+        }
+        return s.toString();
+    }
+
     private class Node<E> {
         E val;
         Node<E> next;

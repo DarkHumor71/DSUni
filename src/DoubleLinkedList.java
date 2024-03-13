@@ -1,6 +1,13 @@
 public class DoubleLinkedList<E> {
-    private Node<E> head, tail;
+    private final Node<E> head;
+    private final Node<E> tail;
     private int size;
+
+    public DoubleLinkedList() {
+        head = new Node<>();
+        tail = new Node<>(head, null, null);
+        head.next = tail;
+    }
 
     public void addFirst(E e) {
         Node<E> n = new Node<>(head, head.next, e);
@@ -116,6 +123,18 @@ public class DoubleLinkedList<E> {
             curr = curr.next;
         }
         return curr;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        Node<E> curr = head.next;
+        while (curr != tail) {
+            if (curr == tail.prev) s.append(curr.val);
+            else s.append(curr.val).append(",");
+            curr = curr.next;
+        }
+        return s.toString();
     }
 
     private class Node<E> {
