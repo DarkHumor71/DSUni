@@ -109,7 +109,7 @@ public class DoubleLinkedList<E> {
 
     public E get(int indx) {
         if (indx > size || indx < 0) return null;
-        Node<E> curr = head;
+        Node<E> curr = head.next;
         for (int i = 0; i < indx; i++) {
             curr = curr.next;
         }
